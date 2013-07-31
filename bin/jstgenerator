@@ -1,3 +1,18 @@
 #!/usr/bin/env ruby
 
-puts 'Hello'
+require "jstgenerator"
+type = ARGV[0]
+glob = ARGV[1]
+out = ARGV[2]
+
+if type == "handlebars"
+  puts "Using Handlebars"
+  JstGenerator::Handlebars.new(:dir_glob => glob, :jst_path => out).generate
+  puts "Wrote JST file to #{out}"
+elsif type == "underscore"
+  puts "Using Underscore"
+  JstGenerator::Underscore.new(:dir_glob => glob, :jst_path => out).generate
+  puts "Wrote JST file to #{out}"
+else
+  puts "That templating library is not yet supported"
+end
