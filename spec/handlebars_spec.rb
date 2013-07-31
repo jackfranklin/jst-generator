@@ -34,4 +34,19 @@ window.JST["two"] = Handlebars.compile("<p>{{desc}}</p>");
 EOS
 
   end
+
+  it "handles nested files" do
+    hb = JstGenerator::Handlebars.new({
+      :dir_glob => "spec/fixtures/handlebars/nested/**/*.hb",
+      :jst_path => "spec/fixtures/handlebars/jst.js"
+    }).generate
+
+    content = IO.read("spec/fixtures/handlebars/jst.js")
+    expect(content).to eq(<<EOS)
+window.JST = {};
+window.JST["test/one"] = Handlebars.compile("{{title}}");
+window.JST["two"] = Handlebars.compile("<p>{{desc}}</p>");
+EOS
+
+  end
 end

@@ -34,11 +34,16 @@ module JstGenerator
 
     def process_template(path)
       contents = IO.read(path).gsub("\n", "")
-      "window.JST[\"#{File.basename(path).split(".").first}\"] = #{method}(\"#{contents}\");"
+      template_name = path.gsub(base_path, "").split(".").first
+      "window.JST[\"#{template_name}\"] = #{method}(\"#{contents}\");"
     end
 
     def jst_heading
       "window.JST = {};"
+    end
+
+    def base_path
+      @dir_glob.split("*").first
     end
   end
 end
