@@ -71,3 +71,11 @@ Make sure you quote the glob string, else your shell may well expand it for you,
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
 5. Create new Pull Request
+
+## Changelist
+
+__0.1.0__
+- added CLI tool
+
+__0.0.1__
+- initial release
