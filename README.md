@@ -50,7 +50,19 @@ var html = window.JST["test"]({ title: "Hello World" });
 The advantage being the compilation step (`Handlebars.compile`) is only run once and that you can keep your templates in their own file, rather than within some HTML.
 
 ###Without a Ruby app (command line)
-_CLI coming soon_
+
+```
+  $ gem install jstgenerator
+  $ jstgenerator [type] [glob] [output]
+```
+
+For example:
+
+```
+  $ jstgenerator handlebars "views/templates/**/*.hb" lib/js/jst.js
+```
+
+Make sure you quote the glob string, else your shell may well expand it for you, which you don't want in this case.
 
 ## Contributing
 
