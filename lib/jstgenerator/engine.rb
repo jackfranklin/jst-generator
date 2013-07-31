@@ -9,9 +9,6 @@ module JstGenerator
       @files = Dir[@dir_glob]
     end
 
-    def create_jst_file(contents = "")
-      File.open(@jst_path, "w") { |f| f.puts contents }
-    end
 
     def generate
       @jst_contents = [jst_heading]
@@ -24,6 +21,10 @@ module JstGenerator
     end
 
     private
+
+    def create_jst_file(contents = "")
+      File.open(@jst_path, "w") { |f| f.puts contents }
+    end
 
     def load_source
       source = open(url).read
