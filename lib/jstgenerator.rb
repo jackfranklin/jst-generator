@@ -1,5 +1,5 @@
 require "jstgenerator/version"
 
-module Jstgenerator
+module JstGenerator
   # Your code goes here...
 end
