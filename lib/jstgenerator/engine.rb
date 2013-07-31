@@ -28,7 +28,9 @@ module JstGenerator
 
     def load_source
       @cxt = V8::Context.new
-      @cxt.load("lib/js/#{filename}.js")
+      base_dir = File.dirname(__FILE__)
+      path = "#{base_dir}/../"
+      @cxt.load("#{path}/js/#{filename}.js")
     end
 
     def process_template(path)
