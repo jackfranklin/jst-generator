@@ -17,6 +17,7 @@ And then execute:
 
 ## Usage
 
+### Within a Ruby app (such as Sinatra)
 Within a Ruby app, you can do something like this:
 
 ```ruby
@@ -46,7 +47,10 @@ You can then load in `jst.js` and compile that template:
 var html = window.JST["test"]({ title: "Hello World" });
 ```
 
-The advantage being the compilation step (`Handlebars.compile`) is only run once.
+The advantage being the compilation step (`Handlebars.compile`) is only run once and that you can keep your templates in their own file, rather than within some HTML.
+
+###Without a Ruby app (command line)
+_CLI coming soon_
 
 ## Contributing
 
