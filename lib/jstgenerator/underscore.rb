@@ -1,11 +1,11 @@
 module JstGenerator
-  class Handlebars < Engine
+  class Underscore < Engine
     def filename
-      "handlebars"
+      "underscore"
     end
 
     def method
-      "Handlebars.compile"
+      "_.template"
     end
   end
 end
