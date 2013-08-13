@@ -46,6 +46,19 @@ window.JST = {};
 window.JST["test/one"] = Handlebars.compile("{{title}}");
 window.JST["two"] = Handlebars.compile("<p>{{desc}}</p>");
 EOS
+  end
+
+  it "escapes double quotes" do
+    hb = JstGenerator::Handlebars.new({
+      :dir_glob => "spec/fixtures/handlebars/quotes/*.hbs",
+      :jst_path => jst_path
+    }).generate
+
+    content = IO.read(jst_path)
+    expect(content).to eq(<<EOS)
+window.JST = {};
+window.JST["test"] = Handlebars.compile("I'm \\\"doubled quoted\\\"");
+EOS
 
   end
 end

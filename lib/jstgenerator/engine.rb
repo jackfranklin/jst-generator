@@ -35,6 +35,7 @@ module JstGenerator
 
     def process_template(path)
       contents = IO.read(path).gsub("\n", "")
+      contents.gsub!('"', '\"')
       template_name = path.gsub(base_path, "").split(".").first
       "window.JST[\"#{template_name}\"] = #{method}(\"#{contents}\");"
     end
